@@ -81,4 +81,50 @@ document.addEventListener('DOMContentLoaded', function () {
             service.classList.toggle('active');
         });
     });
+
+    // Add modal functionality for the contact form
+    const modal = document.querySelector('.modal');
+    const quoteForm = document.getElementById('quoteForm');
+    const contactButton = document.getElementById('contactButton');
+    const closeBtn = document.getElementsByClassName('close')[0];
+
+    contactButton.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Form Submission Handling with fetch
+    quoteForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(quoteForm);
+
+        fetch('process_form.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log('Form submitted successfully');
+                // Add any additional actions you want to perform on success
+            } else {
+                console.error('Error submitting form:', data.message);
+                // Add any additional actions you want to perform on error
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle fetch or other errors
+        });
+    });
 });

@@ -8,12 +8,12 @@ body {
 
 .logo-title {
     font-family: 'Jolly Lodger', sans-serif;
-    color: black;
+    color: white;
 }
 
 header {
-    background-color: cadetblue;
-    color: black;
+    background-color: black;
+    color: white;
     padding: 15px 0;
     position: fixed;
     width: 100%;
@@ -50,7 +50,7 @@ nav ul li {
 
 nav a {
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: normal;
     transition: color 0.3s ease;
 }
@@ -60,16 +60,34 @@ nav a.active {
     color: #ffd700;
 }
 
+/* Hamburger Icon Style */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: whitesmoke;
+    margin: 6px 0;
+}
+
 /* Responsive Navigation Toggle */
 @media only screen and (max-width: 768px) {
-    nav ul {
+    .hamburger {
         display: flex;
+    }
+
+    nav ul {
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
         left: 0;
         width: 100%;
-        background-color: cadetblue;
+        background-color: black;
         z-index: 1000;
     }
 

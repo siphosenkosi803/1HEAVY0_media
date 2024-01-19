@@ -65,13 +65,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Responsive Navigation Toggle
-    const navToggle = document.createElement('div');
-    navToggle.classList.add('nav-toggle');
-    document.body.appendChild(navToggle);
+    const navToggle = document.querySelector('.nav-toggle');
 
-    navToggle.addEventListener('click', () => {
-        document.querySelector('nav ul').classList.toggle('show');
-    });
+    if (navToggle) {
+        navToggle.addEventListener('click', toggleMenu);
+    }
+
+    // Define Toggle Menu Function
+    window.toggleMenu = function () {
+        const navList = document.querySelector('nav ul');
+        if (navList) {
+            navList.classList.toggle('show');
+        }
+    };
 
     // Add accordion functionality for services
     const services = document.querySelectorAll('.service');

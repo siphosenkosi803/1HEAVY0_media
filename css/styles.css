@@ -118,7 +118,10 @@ nav a.active {
     margin-top: 90px;
     padding-top: 90px;
 }
-
+.home-logo img{
+    max-width: 70px; /* Adjust the max-width as needed */
+    margin: 0 auto 20px; /* Adjust the margin as needed */
+}
 .home-content {
     max-width: 800px;
     margin: 0 auto;
